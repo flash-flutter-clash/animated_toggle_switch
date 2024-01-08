@@ -972,27 +972,42 @@ class AnimatedToggleSwitch<T extends Object?>
                     local.animationValue +
                     global.indicatorSize.width /
                         (2 * (global.indicatorSize.width + global.spacing))),
-            child: Padding(
-              padding: textMargin,
-              child: Transform.translate(
-                offset: offset * local.animationValue * (left ? 1 : -1),
-                child: Center(
-                  child: Opacity(
-                      opacity: opacityAnimation
-                          ? 1.0 - local.animationValue.clamp(0.0, 1.0)
-                          : 1.0,
-                      child: textBuilder?.call(value) ??
-                          customTextBuilder?.call(
-                            context,
-                            local.copyWith(
-                              value: value,
-                              index: index,
-                            ),
-                            global,
-                          )),
-                ),
-              ),
+            child: Center(
+              child: Opacity(
+                  opacity: opacityAnimation
+                      ? 1.0 - local.animationValue.clamp(0.0, 1.0)
+                      : 1.0,
+                  child: textBuilder?.call(value) ??
+                      customTextBuilder?.call(
+                        context,
+                        local.copyWith(
+                          value: value,
+                          index: index,
+                        ),
+                        global,
+                      )),
             ),
+            // child: Padding(
+            //   padding: textMargin,
+            //   child: Transform.translate(
+            //     offset: offset * local.animationValue * (left ? 1 : -1),
+            //     child: Center(
+            //       child: Opacity(
+            //           opacity: opacityAnimation
+            //               ? 1.0 - local.animationValue.clamp(0.0, 1.0)
+            //               : 1.0,
+            //           child: textBuilder?.call(value) ??
+            //               customTextBuilder?.call(
+            //                 context,
+            //                 local.copyWith(
+            //                   value: value,
+            //                   index: index,
+            //                 ),
+            //                 global,
+            //               )),
+            //     ),
+            //   ),
+            // ),
           ),
         ),
       );
