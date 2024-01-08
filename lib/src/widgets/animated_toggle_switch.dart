@@ -776,7 +776,8 @@ class AnimatedToggleSwitch<T extends Object?>
           children: [
             Transform.rotate(
               key: ValueKey(firstIndex),
-              angle: transitionValue * angleDistance,
+              // angle: transitionValue * angleDistance,
+              angle: 0,
               child: Opacity(
                   opacity: (1 - transitionValue).clamp(0.0, 1.0),
                   child: finalIconBuilder!(
@@ -791,7 +792,8 @@ class AnimatedToggleSwitch<T extends Object?>
             if (firstIndex != secondIndex)
               Transform.rotate(
                 key: ValueKey(secondIndex),
-                angle: (transitionValue - 1) * angleDistance,
+                // angle: (transitionValue - 1) * angleDistance,
+                angle: 0,
                 child: Opacity(
                     opacity: transitionValue.clamp(0.0, 1.0),
                     child: finalIconBuilder(
