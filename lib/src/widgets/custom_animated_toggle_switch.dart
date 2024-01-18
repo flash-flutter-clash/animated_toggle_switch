@@ -543,9 +543,10 @@ class _CustomAnimatedToggleSwitchState<T>
                             : 0;
 
                         // The local position of the indicator.
-                        double position =
-                            (indicatorSize.width + spacing) * positionValue +
-                                indicatorSize.width / 2;
+                        // 右边滑动距离减少40  _Indicator的宽度增加40
+                        double position = (indicatorSize.width + spacing - 40) *
+                                positionValue +
+                            indicatorSize.width / 2;
 
                         double leftPosition = textDirection == TextDirection.rtl
                             ? width - position
@@ -864,8 +865,8 @@ class _Indicator extends StatelessWidget {
     return Positioned.directional(
       textDirection: textDirection,
       top: (height - indicatorSize.height) / 2,
-      start: position - indicatorSize.width / 2,
-      width: indicatorSize.width,
+      start: position - (indicatorSize.width) / 2,
+      width: indicatorSize.width + 40,
       height: indicatorSize.height,
       child: AnimatedBuilder(
           animation: appearingAnimation,
